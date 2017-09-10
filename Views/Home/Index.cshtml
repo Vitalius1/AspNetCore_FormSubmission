@@ -1,0 +1,51 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+<h1>Enter your information</h1>
+<form action="/" method="post">
+    <table>
+        <tr>
+            <td>First Name</td>
+            <td><input type="text" name="FirstName"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Last Name</td>
+            <td><input type="text" name="LastName"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Age</td>
+            <td><input type="text" name="Age"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Email Address</td>
+            <td><input type="text" name="Email"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input type="password" name="Password"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Submit"></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+</form>
+@{
+   
+        foreach(var error in ViewBag.errors)
+        {
+            //If there are any errors for a field...
+            if(@error.Errors.Count > 0)
+            {
+                // We show the first error for that field
+                <p>@error.Errors[0].ErrorMessage</p>
+            }
+        }
+    
+}
